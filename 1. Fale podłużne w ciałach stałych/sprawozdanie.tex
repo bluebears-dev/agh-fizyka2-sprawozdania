@@ -9,6 +9,22 @@
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
 \usepackage{caption}
+\usepackage{breqn}
+
+\numberwithin{equation}{section}
+
+\renewcommand{\baselinestretch}{1.5}
+\captionsetup[figure]{labelformat={default},name={\bfseries Rys.}}
+\captionsetup[table]{labelformat={default},name={\bfseries Tab.}}
+
+\newcommand*{\captionsource}[2]{%
+	\caption[{#1}]{%
+		#1%
+		\\\hspace{\linewidth}%
+		\textbf{Żródło:} #2%
+	}%
+}
+
 
 
 \title{1. Fale podłużne w ciałach stałych}
@@ -17,9 +33,6 @@
 	Zespół 3: Górski Paweł, Sozańska Ada\\
 	EAIiIB Informatyka, Rok II
 }
-\renewcommand{\baselinestretch}{1.5}
-\captionsetup[figure]{labelformat={default},name={\bfseries Rys.}}
-\captionsetup[table]{labelformat={default},name={\bfseries Tab.}}
 
 \begin{document}
 \maketitle
@@ -35,19 +48,21 @@ Moduł Younga jest to wielkość charakteryzująca własności sprężyste ciał
 
 gdzie $\sigma$ to naprężenie normalne ciała, a $\varepsilon$ to odkształcenie względne ciała.
 
-Rozważając pręt o gęstości $\rho$ i prędkości fali rozchodzącej się w pręcie $\upsilon$ oraz korzystając z prawa Hooke'a (równanie \ref{eq:hooke}), jesteśmy w stanie podać następującą zależność:
+Rozważając pręt o gęstości $\rho$ i szybkości fali rozchodzącej się w pręcie $\upsilon$ oraz korzystając z prawa Hooke'a (równanie \ref{eq:hooke}), jesteśmy w stanie podać następującą zależność:
 \begin{equation}
 	E = \rho \upsilon^2.
+	\label{eq:young}
 \end{equation}
 
-W rozważanym pręcie fale padająca i odbita interferują ze sobą, tworząc falę stojącą. Znając częstotliwość fali $f$ oraz jej długość $\lambda$ jesteśmy w stanie obliczyć prędkość fali w danym ciele:
+W rozważanym pręcie fale padająca i odbita interferują ze sobą, tworząc falę stojącą. Znając częstotliwość fali $f$ oraz jej długość $\lambda$ jesteśmy w stanie obliczyć szybkość fali w danym ciele:
 \begin{equation}
-	\upsilon = f\lambda
+	\upsilon = f\lambda.
+	\label{eq:v}
 \end{equation}
 
-Rozważamy również, że te pręty są obustronnie otwarte lub obustronnie zamknięte. W takim przypadku możemy przedstawić długość fali stojącej jako $\lambda = 2l$, gdzie $l$ jest długością pręta. Biorąc to pod uwagę, jesteśmy w stanie przedstawić formułę na moduł Younga, w której każda wielkość jest mierzalna:
+Przyjmijmy również, że te pręty są obustronnie otwarte lub obustronnie zamknięte. W takim przypadku możemy przedstawić długość fali stojącej jako $\lambda = 2l$, gdzie $l$ jest długością pręta. Biorąc to pod uwagę, jesteśmy w stanie przedstawić formułę na moduł Younga, w której każda wielkość jest mierzalna:
 \begin{equation}
-	E = 4\rho l^2 f^2
+	E = 4\rho l^2 f^2.
 \end{equation}
 
 Fale dźwiękowe w pręcie można przybliżyć za pomocą złożenia harmonicznych drgań sinusoidalnych, a wykorzystując FFT (\emph{Fast Fourier Transform}) możemy otrzymać odpowiadające im częstotliwości. 
@@ -55,6 +70,7 @@ Fale dźwiękowe w pręcie można przybliżyć za pomocą złożenia harmoniczny
 Częstotliwość najniższego tonu jest nazywana częstotliwością podstawową, a kolejne nazywane są częstotliwościami harmonicznymi, będącymi wielokrotnościami częstotliwości podstawowej.
 \begin{equation}
 	f_k = kf_0,~\textrm{gdzie}~k = 2, 3, 4 \ldots
+	\label{eq:f_k}
 \end{equation}
 
 % WYKONANIE ĆWICZENIA
@@ -65,161 +81,216 @@ W celu wykonania doświadczenia wykorzystaliśmy:
 	\item Komputer stacjonarny z mikrofonem,
 	\item Oprogramowanie \emph{Zelscope},
 	\item Zestaw 7 prętów (o różnych kształtach i z różnych materiałów),
-	\item Suwmiarka,
-	\item Miarka w rolce,
+	\item Suwmiarkę,
+	\item Miarkę w rolce,
 	\item Młotek,
 	\item Dwie wagi elektroniczne o różnych dokładnościach.
 \end{itemize}
 
-Doświadczenie rozpoczęliśmy od zmierzenia i zważenia próbek prętów (lub samych prętów, gdy nie było im odpowiadających próbek) w celu wyznaczenia gęstości materiałów. Część pomiarów zostało wykonanych za pomocą suwmiarki z dokładnością $0,05~\mathrm{mm}$, inne (dłuższe) zostały zmierzone za pomocą miarki o działce elementarnej równej $1~\mathrm{mm}$. Do zważenia większości próbek użyliśmy wagi z dokładnością $0,01~\mathrm{g}$, natomiast jeden pręt (ze względu na jego wielkość) musiał być zważony wagą o mniejszej dokładności równej $1~\mathrm{g}$.
+Doświadczenie rozpoczęliśmy od zmierzenia i zważenia próbek prętów (lub samych prętów, gdy nie było im odpowiadających próbek) w celu wyznaczenia gęstości materiałów. Część pomiarów zostało wykonanych za pomocą suwmiarki z dokładnością $0,05~\mathrm{mm}$, inne (dłuższe pręty) zostały zmierzone za pomocą miarki o działce elementarnej równej $1~\mathrm{mm}$. Do zważenia większości próbek użyliśmy wagi z dokładnością $0,01~\mathrm{g}$, natomiast jeden pręt (ze względu na jego wielkość) musiał być zważony wagą o mniejszej dokładności równej $1~\mathrm{g}$.
 
-TU JESZCZE NIE WIEMY JAK ZROBILIŚMY POMIARY CZĘSTOTLIWOŚCI :( SMUTEK.
+Następnie do jednego końca pręta przyłożony został mikrofon tak, aby po uderzeniu młotkiem w drugi koniec zostały zarejestrowane harmoniczne tego drgania. Za pomocą programu \emph{Zelscope} (po zastosowaniu FFT) z wykresu zostały odczytane częstotliwości dla kolejnych harmonicznych z niepewnością oszacowaną na 20~Hz. Powyższa procedura została powtórzona dla czterech prętów (stalowego, aluminiowego, mosiężnego i miedzianego).
+
 \pagebreak
 % OPRACOWANIE DANYCH POMIAROWYCH
 \section{Opracowanie danych pomiarowych}
-\subsection{Pomiary}
-Zmierzona długość wahadła wynosi $l = 341$ mm. Niepewność pomiaru długości wahadła $l$ wynosi $u(l) = 1$ mm, ponieważ jest to najmniejsza działka elementarna wykorzystanego narzędzia.
+\subsection{Gęstości materiałów}
+
+Zmierzone zostały wymiary oraz masy próbek (lub samego pręta w przypadku braku próbki) dla każdego z czterech prętów.
+
+Próbka stalowa miała kształt prostopadłościanu o wymiarach:
+\begin{equation}
+	\begin{split}
+	 	&a = 14,20~\textrm{mm},~~b = 14,00~\textrm{mm}~~\textrm{i}~~c = 19,80~\textrm{mm}, \\
+		&u(a) = u(b) = u(c) = 0,05~\textrm{mm}.
+	\end{split}
+\end{equation}
+Niepewność pomiaru objętości tej próbki została wyznaczona korzystając z prawa propagacji niepewności:
+\begin{align}
+	&V = abc, \\
+	&u(V) = \sqrt{(bc\cdot u(a))^2 + (ac\cdot u(b))^2 + (ab\cdot u(c))^2}.
+\end{align}
+
+Próbka aluminiowa miał kształt walca o średnicy $d$ i wysokości $l$:
+\begin{equation}
+	\begin{split}
+		&d = 5,00~\textrm{mm},~~l = 440~\textrm{mm},\\
+		&u(d) = 0,05~\textrm{mm},~~u(l) = 1~\textrm{mm}.
+	\end{split}
+\end{equation}
+Niepewność pomiaru objętości tej próbki została wyznaczona korzystając z prawa propagacji niepewności:
+\begin{align}
+&V = d^2 l \frac{\pi }{4},  \label{eq:v_cyl} \\
+&u(V) = \sqrt{\Bigg(d l \frac{\pi}{2} \cdot u(d)\Bigg)^2 + \Bigg(d^2 \frac{\pi}{4} \cdot u(l)\Bigg)^2}  \label{eq:uv_cyl}.
+\end{align}
+
+Próbka mosiężna miała kształt walca o średnicy $d$ i wysokości $l$:
+\begin{equation}
+\begin{split}
+&d = 5,90~\textrm{mm},~~l = 312~\textrm{mm}, \\
+&u(d) = 0,05~\textrm{mm},~~u(l) = 1~\textrm{mm}.
+\end{split}
+\end{equation}
+Objętość próbki została policzona ze wzoru (\ref{eq:v_cyl}), a niepewność pomiaru objętości ze wzoru (\ref{eq:uv_cyl}).
+
+Pręt miedziany, nie posiadał próbki dlatego też wymiary i masa zostały zmierzone bezpośrednio. Miał on kształt rury o średnicy zewnętrznej $d_{zew}$, średnicy wewnętrznej $d_{wew}$ i wysokości $l$:
+\begin{equation}
+	\begin{split}
+		&d_{zew} = 18,15~\textrm{mm},~d_{wew} = 15,50~\textrm{mm},~~l = 1802~\textrm{mm},\\
+		&u(d_{zew}) = u(d_{wew}) = 0,05~\textrm{mm},~~u(l) = 1mm.
+	\end{split}
+\end{equation}
+Objętość rury została policzona ze wzoru:
+\begin{equation}
+	V = (d_{zew}^2 - d_{wew}^2) l \frac{\pi }{4}.
+\end{equation}
+Niepewność pomiaru objętości tej rury została wyznaczona korzystając z prawa propagacji niepewności:
+\begin{equation}
+	u(V) = \sqrt{\Bigg(\frac{\partial V}{\partial d_{zew}} \cdot u(d_{zew})\Bigg)^2 + \Bigg(\frac{\partial V}{\partial d_{wew}} \cdot u(d_{wew})\Bigg)^2  + \Bigg(\frac{\partial V}{\partial l} \cdot u(l)\Bigg)^2},
+\end{equation}
+gdzie
+\begin{equation}
+	\begin{split}
+		&\frac{\partial V}{\partial d_{zew}} = d_{zew} l \frac{\pi}{2} - 1,\\[5pt]
+		&\frac{\partial V}{\partial d_{wew}} = 1 - d_{wew} l \frac{\pi}{2},\\[5pt]
+		&\frac{\partial V}{\partial l} = (d_{zew}^2 - d_{wew}^2) \frac{\pi }{4}.
+	\end{split}
+\end{equation}
+
+\pagebreak
+Gęstości materiałów wyznaczone zostały za pomocą wzoru:
+\begin{equation}
+	\rho = \frac{m}{V},
+\end{equation}
+gdzie $m$ jest masą badanej próbki, a $V$ objętością tej próbki.
+Niepewność pomiaru gęstości została wyznaczona na mocy prawa przenoszenia niepewności:
+\begin{equation}
+	u(\rho) = \sqrt{\Bigg(\frac{u(m)}{V}\Bigg)^2 + \Bigg(-m \frac{u(V)}{V}\Bigg)^2}.
+\end{equation}
+Wyniki dla poszczególnych materiałów zostały zestawione w tabeli \mbox{(Tab. \ref{tab:tab1})}.
 
 \begin{table}[!ht]
-	\caption{Wartości pomiarów okresów wahadła dla stałej długości}
+	\caption{Objętości wraz z gęstościami dla badanych materiałów}
 	\begin{center}
-		\begin{tabular}{r|r|r|r}
-			\hline
-			\multicolumn{1}{c|}{L.p.} & \multicolumn{1}{c|}{liczba okresów $k$} & \multicolumn{1}{c|}{czas $t$ dla $k$ okresów [s]} & \multicolumn{1}{c}{okres $T_i = t/k$ [s]} \\ \hline \hline
-			1 & 20 & 22,61 & 1,130 \\
-			2 & 20 & 22,88 & 1,144 \\
-			3 & 20 & 22,64 & 1,132 \\
-			4 & 20 & 22,78 & 1,139 \\
-			5 & 20 & 22,77 & 1,138 \\
-			6 & 20 & 22,88 & 1,144 \\
-			7 & 20 & 23,09 & 1,154 \\
-			8 & 20 & 23,07 & 1,153 \\
-			9 & 20 & 23,15 & 1,157 \\
-			10 & 20 & 23,24 & 1,162 \\ \hline
+		\begin{tabular}{r|c|c|c|c|c|c}
+			\hline  \rule{0pt}{18pt} 
+			Materiał & $m$~[g] & $u(m)$~[g] & $V~\big[\textrm{cm}^3\big]$ & $u(V)~\big[\textrm{cm}^3\big]$ & $\rho~\Big[\frac{\textrm{kg}}{\textrm{m}^3}\Big]$ & $u(\rho)~\Big[\frac{\textrm{kg}}{\textrm{m}^3}\Big]$ \\[3pt] \hline \hline
+			Stal & 30,862 & 0,001 & 3,936 & 0,022 & 7840 & 44  \\
+			Aluminium & 23,883 & 0,001 & 8,63 & 0,17 &  2764 & 55  \\
+			Mosiądz & 74,536 & 0,001 &  8,53 & 0,14 & 8738 & 150   \\
+			Miedź & 760 & 1 & 126,2 & 3,3 & 6022  & 161 \\ \hline
 		\end{tabular}
 	\end{center}
 	\label{tab:tab1}
 \end{table}
-Wartość średnia okresu $T$ dla wyników pomiaru okresu $T_i$ (Tab. \ref{tab:tab1}) jest równa $T = 1,145$. Niepewność pomiaru wartości okresu wyrażona wzorem:
-\begin{equation}
-	u(T) = \sqrt{\frac{\sum_{i=1}^{10}(T_i - T)^2}{n(n-1)}}
-\end{equation}
-wynosi $u(T) = 3,4$ ms.
 
-Poniżej znajdują się wyniki pomiarów (Tab. \ref{tab:tab2}) przy zmiennej długości wahadła potrzebne do wykonania regresji liniowej.
+\subsection{Analiza składowych harmonicznych}
+
+Dla częstotliwości podstawowej, długość rozchodzącej się fali stojącej $\lambda$ wynosi $\lambda = 2l$, gdzie $l$ to długość pręta. Z zależności między częstotliwościami składowych harmonicznych (\ref{eq:f_k}), wzoru na szybkość fali (\ref{eq:v}) i faktu, iż szybkość ta jest stała dla danego ośrodka wynika, że dla każdej kolejnej składowej harmonicznej wartość ta jest $n$ razy mniejsza, gdzie $n$ oznacza numer harmonicznej.
+
+W tabeli poniżej zawarte są wyniki otrzymane przy pomocy programu \emph{Zelscope}.
+
+\pagebreak
 \begin{table}[!ht]
-	\caption{Wartości pomiarów okresów wahadła dla zmiennej długości}
-	\begin{center}
-		\begin{tabular}{r|r|r|r|r|r}
-			\hline
-			\multicolumn{1}{c|}{L.p.} & \multicolumn{1}{c|}{$l$ [mm]} & \multicolumn{1}{c|}{k} & \multicolumn{1}{c|}{$t$ [s]} & \multicolumn{1}{c|}{$T_i$ [s]} & \multicolumn{1}{c}{$T_{i}^{2} ~[\textrm{s}^2]$} \\ \hline \hline
-			1 & 439 & 20 & 26,2 & 1,310 & 1,716 \\
-			2 & 403 & 20 & 24,9 & 1,245 & 1,550 \\
-			3 & 366 & 20 & 23,68 & 1,184 & 1,401 \\
-			4 & 327 & 20 & 22,55 & 1,127 & 1,270 \\
-			5 & 285 & 20 & 21,16 & 1,058 & 1,119\\
-			6 & 241 & 20 & 19,32 & 0,9660 & 0,9331 \\
-			7 & 194 & 20 & 17,87 & 0,8935 & 0,7983 \\
-			8 & 153 & 20 & 15,19 & 0,7595 & 0,5768 \\
-			9 & 108 & 20 & 13,21 & 0,6605 & 0,4362 \\
-			10 & 63 & 20 & 10,34 & 0,5170 & 0,2672 \\ \hline
-		\end{tabular}
-	\end{center}
+	\caption{Częstotliwości składowych harmonicznych oraz odpowiadające im szybkości fali dla poszczególnych materiałów}
+	\centering
+	\begin{adjustbox}{height=0.448\textheight}
+		\begin{center}
+			\begin{tabular}{l||c|c|c|c|c|c}
+				\multicolumn{5}{c}{\hspace{3.25cm}\bfseries Stal} & \multicolumn{2}{c}{$l = 1,8$~m} \\ \hline
+				Nr harmonicznej & 1 & 2 & 3 & 4 & 5 & 6  \\
+				$f$ [Hz] & 1410 & 2900 & 4310 & 5720 & 7120 & 8600  \\
+				$\lambda$ [m] & 3,600 & 1,800 & 1,200 & 0,900 & 0,720 & 0,600  \\ 
+				$f_0$ [Hz] & 1410 & 1450 & 1436 & 1430 & 1424 & 1433  \\
+				$\upsilon$ $\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & 5076 & 5220 & 5172 & 5148 & 5126 & 5160  \\[1pt] \hline
+				\multicolumn{5}{c}{\hspace{3.25cm}\bfseries Aluminium} & \multicolumn{2}{c}{$l = 1$~m} \\ \hline
+				Nr harmonicznej & 1 & 2 & 3 & 4 & 5 & 6  \\
+				$f$ [Hz] & 2435 & 4970 & 6842 & 9560 & 11340 & 12370 \\
+				$\lambda$ [m] & 2,000 & 1,000 & 0.666 & 0,500 & 0,400 & 0,333  \\ 
+				$f_0$ [Hz] & 2435 & 2485& 2280& 2390& 2268& 2061  \\
+				$\upsilon$ $\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & 4870 & 4970 & 4561 & 4780 & 4536 & 4123 \\[1pt] \hline
+				\multicolumn{5}{c}{\hspace{3.25cm}\bfseries Mosiądz} & \multicolumn{2}{c}{$l = 1$~m} \\ \hline
+				Nr harmonicznej & 1 & 2 & 3 & 4 & 5 & 6  \\
+				$f$ [Hz] & 1690 & 3470 & 5160 & 6840 & 8630 & 12000 \\
+				$\lambda$ [m] & 2,000 & 1,000 & 0.666 & 0,500 & 0,400 & 0,333  \\ 
+				$f_0$ [Hz] & 1690 & 1735 & 1720 & 1710 & 1726 & 2000  \\
+				$\upsilon$ $\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & 3380 & 3470 & 3440 & 3420 & 3452 & 4000 \\[1pt] \hline
+				\multicolumn{5}{c}{\hspace{3.25cm}\bfseries Miedź} & \multicolumn{2}{c}{$l = 1,8$~m} \\ \hline
+				Nr harmonicznej & 1 & 2 & 3 & 4 & 5 & 6  \\
+				$f$ [Hz] & 1180 & 2160 & 3240 & 4280 & 5260 & 6200  \\
+				$\lambda$ [m] & 3,600 & 1,800 & 1,200 & 0,900 & 0,720 & 0,600  \\ 
+				$f_0$ [Hz] & 1180 & 1080 & 1080 & 1070 & 1052 & 1033  \\
+				$\upsilon$ $\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & 4248 & 3888 & 3888 & 3852 & 3787 & 3720 \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{adjustbox}
 	\label{tab:tab2}
 \end{table}
-
-%\begin{table}[htbp]
-%	\caption{Wartości pomiarów okresów wahadła dla zmiennej długości}
-%	\begin{center}
-%		\begin{tabular}{r|r|r|r|r|r|r|r}
-%			\hline
-%			\multicolumn{1}{c|}{L.p.} & \multicolumn{1}{c|}{$l$ [mm]} & \multicolumn{1}{c|}{k} & \multicolumn{1}{c|}{$t$ [s]} & \multicolumn{1}{c|}{$T_i$ [s]} & \multicolumn{1}{c|}{$T_{i}^{2} ~[\textrm{s}^2]$} & \multicolumn{1}{c|}{$g~[\frac{\textrm{m}}{\textrm{s}^2}]$} & \multicolumn{1}{c}{$u(g)~[\frac{\textrm{m}}{\textrm{s}^2}]$} \\ \hline \hline
-%			1 & 439 & 20 & 26,2 & 1,310 & 1,716 & 10,9 & 0,057 \\
-%			2 & 403 & 20 & 24,9 & 1,245 & 1,550 & 10,26 & 0,061 \\
-%			3 & 366 & 20 & 23,68 & 1,184 & 1,401 & 10,3 & 0,065 \\
-%			4 & 327 & 20 & 22,55 & 1,127 & 1,270 & 10,16 & 0,069 \\
-%			5 & 285 & 20 & 21,16 & 1,058 & 1,119 & 10,05 & 0,074 \\
-%			6 & 241 & 20 & 19,32 & 0,9660 & 0,9331 & 10,19 & 0,083 \\
-%			7 & 194 & 20 & 17,87 & 0,8935 & 0,7983 & 9,59 & 0,088 \\
-%			8 & 153 & 20 & 15,19 & 0,7595 & 0,5768 & 10,47 & 0,116 \\
-%			9 & 108 & 20 & 13,21 & 0,6605 & 0,4362 & 9,77 & 0,135 \\
-%			10 & 63 & 20 & 10,34 & 0,5170 & 0,2672 & 9,3 & 0,192 \\ \hline
-%		\end{tabular}
-%	\end{center}
-%	\label{tab:tab2}
-%\end{table}
-
-\subsection{Analiza wyniku dla stałej długości wahadła}
-Wartość przyspieszenia ziemskiego $g$ dla długości wahadła $l$ oraz okresowi wahadła $T$ wynosi:
-\begin{equation}
-	\begin{split}
-		&l = 0,341~\textrm{m},~~T = 1,145~\textrm{s}, \\ 
-		&g = 4\pi^2\frac{l}{T^2} \approx 10,26~\frac{\textrm{m}}{\textrm{s}^2}.
-	\end{split}
-\end{equation}
-
-Niepewność złożona pomiaru wartości przyspieszenia ziemskiego wyliczona, wykorzystując prawo przenoszenia niepewności wynosi:
-\begin{equation}
-	u_c(g) = 0,18~\frac{\textrm{m}}{\textrm{s}^2}.
-\end{equation}
-Niepewność rozszerzona pomiaru wartości przyspieszenia ziemskiego wynosi:
-\begin{equation}
-	U(g) = 0,36~\frac{\textrm{m}}{\textrm{s}^2}.
-\end{equation}
-
-Wartość tabelaryczna przyspieszenia ziemskiego w Krakowie wynosi $g_0 = 9,811~\frac{\textrm{m}}{\textrm{s}^2}$.
-
-\begin{equation}
-	|g - g_0| = 0,37 > U(g) = 0,36~[\frac{\textrm{m}}{\textrm{s}^2}]
-	\label{eq:gconst}
-\end{equation}
-
-Wynik wskazuje na to, że mógł zostać popełniony błąd systematyczny podczas pomiarów okresów wahadła (żadne dane nie odbiegają od siebie w znaczący sposób). Prawdopodobnie wynika on z braku synchronizacji osób przeprowadzających doświadczenie.
-
-
-\subsection{Analiza wyniku dla zmiennej długości wahadła}
-\begin{figure}[!ht]
-	\centering
-
-	\caption{Wykres zależności okresu od długości wahadła}
-	\label{fig:img2}
-\end{figure}
 \pagebreak
-Na wykresie (Rys. \ref{fig:img2}) widzimy funkcję okresu wahadła od jego długości. Zależność ta nie jest zależnością liniową (wykres jest lekko pochylony). Dopiero zależność kwadratu okresu wahadła od jego długości przypomina funkcję liniową. 
 
-\begin{figure}[!ht]
+Analizując dane z tabeli (Tab. \ref{tab:tab2}) można zauważyć, że dla aluminium oraz mosiądzu wartości $f_0$ dla szóstej składowej harmonicznej znacznie odbiegają od pozostałych. Podobna sytuacja zachodzi w przypadku pierwszej częstotliwości dla pręta miedzianego. Prawdopodobnie został popełniony błąd gruby, dlatego też wyniki te odrzucamy. Następnie dla pozostałych danych wyznaczamy średnie wartości szybkości $\upsilon$ i częstotliwości podstawowej $f_0$. Dodatkowo dla wyznaczonych wartości gęstości $\rho$ i szybkości $\upsilon$ obliczamy moduł Younga $E$ każdego z omawianych materiałów. Obliczoną wartość $E$ porównujemy z wartościami tabelarycznymi $E_0$ odpowiadających im materiałów (zaczerpniętymi z \emph{www.engineeringtoolbox.com}).
+
+Niepewność dla szybkości $\upsilon$ wyznaczamy stosując prawo przenoszenia niepewności dla wzoru (\ref{eq:v}):
+\begin{equation}
+u(\upsilon) = \sqrt{(f \cdot u(\lambda))^2 + (\lambda \cdot u(f))^2}.
+\end{equation}
+
+Identycznie postępujemy dla wzoru (\ref{eq:young}) na moduł Younga:
+\begin{equation}
+u(E) = \sqrt{(\upsilon^2 \cdot u(\rho))^2 + (2\rho\upsilon \cdot u(\upsilon))^2}.
+\end{equation}
+
+Dla niepewności $u(\lambda) = 1$~mm, $u(f_0) = 20$~Hz i $u(\rho)$ w tabeli (Tab. \ref{tab:tab1}) obliczamy niepewności $u(\upsilon)$ i $u(E)$ według powyższych wzorów. Wszystkie wyniki zawarte są w poniżej tabeli.
+
+\begin{table}[!ht]
+	\caption{Obliczona i tabelaryczna wartość modułu Younga}
 	\centering
+	\begin{adjustbox}{width=1\textwidth}
+	\begin{center}
+		\begin{tabular}{r|c|c|c|c|c|c}
+			\hline  \rule{0pt}{18pt} 
+			Materiał & $f_0$~[Hz] & $\upsilon$~$\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & $u(\upsilon)$~$\Big[\frac{\textrm{m}}{\textrm{s}}\Big]$ & $E~[\textrm{GPa}]$ & $u(E)~[\textrm{GPa}]$ & $E_0~[\textrm{GPa}]$\\ \hline \hline
+			Stal & 1430 & 5150 & 72 & 207,9 & 5,9 & 200 \\
+			Aluminium & 2371 & 4743 & 40 & 62,1 & 1,6 & 69  \\
+			Mosiądz & 1716 & 3432 & 40 & 102,9 & 2,9 & 102 - 125  \\
+			Miedź & 1063 & 3827 & 72 & 88,2 & 4,0 & 117  \\ \hline
+		\end{tabular}
+	\end{center}
+	\end{adjustbox}
+	\label{tab:tab3}
+\end{table}
 
-	\caption{Wykres zależności kwadratu okresu od długości wahadła}
-	\label{fig:img3}
-\end{figure}
-
-
-Wykorzystując metodę najmniejszych kwadratów przypasowaliśmy następującą prostą:
+Dla stali wartość modułu Younga jest zgodna w granicy błędu, ponieważ:
 \begin{equation}
-	\begin{split}
-	&y = ax,~~ a = 3,887,\\ 
-	&u(a) = 0,023.
-	\end{split}
+	\Big|E_0 - E\Big| = 7,9 < U(E) = 11,8~[\textrm{GPa}].
 \end{equation}
 
-Korzystając ze wzoru:
+Dla aluminium obliczona wartość modułu Younga nie jest zgodna z wartością tabelaryczną, gdyż:
 \begin{equation}
-	g = \frac{4\pi^2}{a}
+\Big|E_0 - E\Big| = 6,9 > U(E) = 3,2~[\textrm{GPa}].
 \end{equation}
-wyliczamy wartość przyspieszenia ziemskiego $g = 10,15~\frac{\textrm{m}}{\textrm{s}^2}$.
 
-Niepewność przyspieszenia ziemskiego wyliczona tą metodą jest równa $u_c(g) = 0,061~\frac{\textrm{m}}{\textrm{s}^2}$.
-Porównując z wartością tabelaryczną jak poprzednio mamy:
+Dla mosiądzu wartość modułu Younga zawiera się w przedziale dopuszczalnym dla tego materiału:
 \begin{equation}
-	|g - g_0| = 0,27 > U(g) = 0,122~[\frac{\textrm{m}}{\textrm{s}^2}].
-	\label{eq:gvar}
+	102 < E = 102,9 < 125~[\textrm{GPa}].
 \end{equation}
-Ponownie otrzymana wartość przyspieszenia ziemskiego $g$ nie jest zgodna z wartością tabelaryczną.
+
+Dla miedzi obliczona wartość modułu Younga nie jest zgodna z wartością tabelaryczną, gdyż:
+\begin{equation}
+\Big|E_0 - E\Big| = 28,8 > U(E) = 8,0~[\textrm{GPa}].
+\end{equation}
+
+\pagebreak
 \section{Wnioski}
-Mimo zmniejszenia czynnika ludzkiego (10 pomiarów 20 okresów) oraz wyliczenia średniej ze zmierzonych wartości w celu zminimalizowania niepewności, wyniki otrzymane przy pomocy obu metod nie są zgodne z wartością tabelaryczną dla Krakowa.
 
-Dla naszych danych, metoda druga (wykorzystująca regresję liniową) cechuje się większą dokładnością (równanie \ref{eq:gvar}) aniżeli metoda pierwsza (równanie \ref{eq:gconst}), której niepewność otrzymanego wyniku jest ponad trzykrotnie większa od niepewności metody drugiej.
+Dzięki pomiarom masy i objętości próbek (oraz rury), byliśmy w stanie wyznaczyć odpowiadające im gęstości. Następnie przy pomocy programu \emph{Zelscope} otrzymaliśmy częstotliwości składowych harmonicznych co pozwoliło nam wyznaczyć szybkość rozchodzenia się fali w prętach, a w konsekwencji obliczyć wartość modułu Younga.
 
-Różnice powstałe między tymi dwoma metodami są spowodowane błędem systematycznym nie wykrytym podczas pomiarów okresu wahadła lub nieprawidłowym przeprowadzeniem doświadczenia. Drastyczny wpływ na wynik mógł mieć zbyt duży kąt odchylenia wahadła (większy niż $3^\circ$), bowiem wtedy aproksymacja, którą wykorzystujemy ma większy błąd (zwiększenie z $3^\circ$ do $15^\circ$ powoduje ok. dwudziestokrotnie większy błąd).
+Otrzymane w ten sposób wartości dla stali oraz mosiądzu zgadzają się z odpowiadającymi im wartościami tabelarycznymi.
+
+Niestety, mimo odrzucenia błędu grubego dla aluminium i miedzi wartość modułu Younga dla tych materiałów nie jest zgodna z wartością tabelaryczną. W przypadku aluminium można podejrzewać, że został popełniony błąd systematyczny, ponieważ wartości częstotliwości podstawowej $f_0$ cechowały się stosunkowo dużym rozrzutem. Natomiast w przypadku miedzi, wyznaczona gęstość nie była zgodna z wartością tabelaryczną $\rho_0 = 8940~\Big[\frac{\textrm{kg}}{\textrm{m}^3}\Big]$:
+\begin{equation}
+\Big|\rho_0 - \rho\Big| = 2918 > U(\rho) = 322~\Big[\frac{\textrm{kg}}{\textrm{m}^3}\Big],
+\end{equation}
+co może sugerować, że rura ta nie była wykonana z miedzi lub pomiary masy i jej rozmiaru mogły zostać źle wykonane. Nie można wykluczyć też, że błędne było założenie, iż średnica wewnętrzna tej rury była stała na całej długości.
+
 \end{document}

@@ -9,6 +9,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
 \usepackage{caption}
+\usepackage{adjustbox}
 
 \numberwithin{equation}{section}
 
@@ -42,7 +43,7 @@ Celem tego doświadczenia jest wyznaczenie nieznanych oporów oraz zweryfikowani
 
 Mostek Wheatstone'a jest oparty na trzech fundamentalnych prawach obwodów elektrycznych.
 
-Pierwszym z nich jest \emph{Prądowe Prawo Kirchhoffa}. Dotyczy ono prądów wpływających do węzła obwodu elektrycznego. Mówi ono, że suma algebraiczna prądów wpływających do danego węzła jest równa zeru. Zakładając, że do węzła wpływa $n$ prądów $I_j$, gdzie $j \in \{1,2,~\ldots,~n\}$, prawo to można zapisać następująco:
+Pierwszym z nich jest \emph{Prądowe Prawo Kirchhoffa}. Dotyczy ono prądów wpływających do węzła obwodu elektrycznego oraz mówi, że suma algebraiczna prądów wpływających do danego węzła jest równa zeru. Zakładając, że do węzła wpływa $n$ prądów $I_j$, gdzie $j \in \{1,2,~\ldots,~n\}$, prawo to można zapisać następująco:
 \begin{equation}
 	\sum_{j = 1}^{n} I_j = 0.
 	\label{krichoff1}
@@ -69,12 +70,12 @@ Mostek Wheatstone'a jest układem do porównywania oporów. Oprócz pomiaru wiel
 
 \begin{figure}[!htb]
 	\includegraphics[width=1\textwidth]{img/mostek.png} 
-	\captionsource{Schemat mostku Wheatstone'a. Niezrównoważony (po lewej) oraz zrównoważony (po prawej).}{Instrukcja do ćwiczenia}
+	\captionsource{Schemat mostka Wheatstone'a. Niezrównoważony (po lewej) oraz zrównoważony (po prawej).}{Instrukcja do ćwiczenia}
 	\label{fig:img1}
 \end{figure}
 
 
-Składa się on z czterech oporników o porach: $R_x, R_2, R_3, R_4$ oraz galwanometru o oporze $R_5$. Stosując \emph{Prądowe Prawo Kirchhoffa} (\ref{krichoff1}) dla węzłów $B, D$ otrzymujemy następujące równania:
+Składa się on z czterech oporników o oporach: $R_x, R_2, R_3, R_4$ oraz galwanometru o oporze $R_5$. Stosując \emph{Prądowe Prawo Kirchhoffa} (\ref{krichoff1}) dla węzłów $B, D$ otrzymujemy następujące równania:
 \begin{equation}
 	\begin{split}
 	&B:~I_1 = I_2 + I_5, \\
@@ -93,7 +94,7 @@ Następnie wykorzystując \emph{Napięciowe Prawo Kirchhoffa} (\ref{krichoff2}) 
 	\label{eq:e2}
 \end{equation}
 
-W doświadczeniu wykorzystujemy układ zrównoważony, w którym potencjały w węzłach $B$ i $D$ są równe. W konsekwencji mamy $I_5 = 0$, co powoduje uproszczenie układu równań (\ref{eq:e1}) do:
+W doświadczeniu wykorzystujemy układ zrównoważony, w którym potencjały w węzłach $B$ i $D$ są równe. W konsekwencji mamy $I_5 = 0$~A, co powoduje uproszczenie układu równań (\ref{eq:e1}) do:
 \begin{equation}
 	\begin{split}
 	I_1 = I_2, \\
@@ -109,7 +110,7 @@ Dalej, równania (\ref{eq:e2}) upraszczają się do postaci:
 \end{equation}
 Co nam daje:
 \begin{equation}
-	R_x = R_2\frac{R_3}{R_4}
+	R_x = R_2\frac{R_3}{R_4}.
 	\label{eq:e3}
 \end{equation}
 
@@ -122,165 +123,188 @@ gdzie $\rho$ to oporność właściwa, a $S$ to pole przekroju wewnętrznego prz
 
 Ostatecznie, korzystając z (\ref{eq:e3}) i (\ref{eq:e4}) otrzymujemy wzór, w którym wszystkie parametry są mierzalne:
 \begin{equation}
-	R_x = R_2 \frac{a}{l - a}
+	R_x = R_2 \frac{a}{l - a}.
+	\label{eq:rx}
 \end{equation}
 
 \pagebreak
 % WYKONANIE ĆWICZENIA
 \section{Wykonanie ćwiczenia}
+\label{sec:2}
 
 
 W celu wykonania doświadczenia wykorzystaliśmy:
 \begin{itemize}
 	\item Listwę o długości $1$~m z podziałką milimetrową, drutem oporowym i suwakiem,
-	\item Opornicę dekadową $R$,
-	\item Zestaw oporników $R_x$,
+	\item Opornicę dekadową $R_2$,
+	\item Zestaw pięciu oporników $R_x$,
 	\item Mikroamperomierz,
 	\item Zasilacz stabilizowany $3$~A/$30$~V.
 \end{itemize}
 
-Doświadczenie rozpoczęliśmy od połączenia elementów w zrównoważony mostek Wheatstone'a. Suwak na listwie przesunęliśmy do połowy jej długości ($a = 50$~cm). Dla każdego z oporników $R_x$ ustawialiśmy opór $R$ na opornicy dekadowej tak, aby amperomierz wskazywał $0$~A. Następnie osiem razy zmienialiśmy opór $R$, żeby oscylował w okół wartości początkowej $R$ (ustawionej dla $a = 50$~cm) i dostosowywaliśmy suwak, tak aby za każdym razem amperomierz wskazywał $0$ A.
+Doświadczenie rozpoczęliśmy od połączenia elementów w zrównoważony mostek Wheatstone'a. Suwak na listwie przesunęliśmy do połowy jej długości ($a = 50$~cm). Dla każdego z pięciu oporników $R_x$ ustawialiśmy opór $R_2$ na opornicy dekadowej tak, aby amperomierz wskazywał $0$~A. Następnie osiem razy zmienialiśmy opór $R_2$, żeby oscylował w okół wartości początkowej $R_2$ (ustawionej dla $a = 50$~cm) i dostosowywaliśmy suwak, tak aby za każdym razem amperomierz wskazywał $0$ A.
 
-Analogiczne pomiary wykonaliśmy dla połączenia szeregowego \mbox{($R_{x1}$ z $R_{x2}$)}, równoległego ($R_{x1}$ z $R_{x2}$) i mieszanego ($R_{x3}$ szeregowo z równolegle połączonymi $R_{x1}$ z $R_{x2}$)
+Analogiczne pomiary wykonaliśmy dla połączenia szeregowego (opory $R_{x1}$ i $R_{x2}$), równoległego (opory $R_{x1}$ i $R_{x2}$) i mieszanego (opór $R_{x3}$ szeregowo z równolegle połączonymi oporami $R_{x1}$ i $R_{x2}$).
 
 \pagebreak
 % OPRACOWANIE DANYCH POMIAROWYCH
 \section{Opracowanie danych pomiarowych}
 \subsection{Pomiary}
-Zmierzona długość wahadła wynosi $l = 341$ mm. Niepewność pomiaru długości wahadła $l$ wynosi $u(l) = 1$ mm, ponieważ jest to najmniejsza działka elementarna wykorzystanego narzędzia.
+W poniższej tabeli prezentujemy wyniki pomiarów dla każdego opornika. Pomiary zostały wykonane tak, jak opisano to w sekcji \emph{Wykonanie ćwiczenia}. Opór $R_x$ każdego z oporników został obliczony ze wzoru (\ref{eq:rx}) dla $l = 1000$~mm (długość całego drutu), oraz dla wartości $a$ i $R_2$ podanych w tabeli.
 
 \begin{table}[!ht]
-	\caption{Wartości pomiarów okresów wahadła dla stałej długości}
-	\begin{center}
-		\begin{tabular}{r|r|r|r}
-			\hline
-			\multicolumn{1}{c|}{L.p.} & \multicolumn{1}{c|}{liczba okresów $k$} & \multicolumn{1}{c|}{czas $t$ dla $k$ okresów [s]} & \multicolumn{1}{c}{okres $T_i = t/k$ [s]} \\ \hline \hline
-			1 & 20 & 22,61 & 1,130 \\
-			2 & 20 & 22,88 & 1,144 \\
-			3 & 20 & 22,64 & 1,132 \\
-			4 & 20 & 22,78 & 1,139 \\
-			5 & 20 & 22,77 & 1,138 \\
-			6 & 20 & 22,88 & 1,144 \\
-			7 & 20 & 23,09 & 1,154 \\
-			8 & 20 & 23,07 & 1,153 \\
-			9 & 20 & 23,15 & 1,157 \\
-			10 & 20 & 23,24 & 1,162 \\ \hline
-		\end{tabular}
-	\end{center}
+	\caption{Wartości pomiarów nieznanych oporów $R_x$}
+	\begin{adjustbox}{width=1\textwidth}
+		\begin{center}
+			\begin{tabular}{l||c|c|c|c|c|c|c|c|c}
+				\multicolumn{10}{c}{\bfseries Opornik 1} \\ \hline
+				$R_2$ [$\Omega$] & 8,2 & 9,2 & 10,2 & 11,2 & 12,2 & 13,2 & 14,2 & 15,2 & 16,2 \\
+				$a$ [mm] & 599 & 572 & 550 & 522 & 500 & 482 & 465 & 450 & 431 \\
+				$R_{x1}$ [$\Omega$] & 12,249 & 12,295 & 12,467 & 12,231 & 12,200 & 12,283 & 12,342 & 12,436 & 12,271 \\ \hline
+				\multicolumn{10}{c}{\bfseries Opornik 2} \\ \hline
+				$R_2$ [$\Omega$] & 31,1 & 32,1 & 33,1 & 34,1 & 35,1 & 36,1 & 37,1 & 38,1 & 39,1 \\
+				$a$ [mm] & 530 & 521 & 514 & 507 & 500 & 492 & 483 & 476 & 470 \\
+				$R_{x2}$ [$\Omega$] & 35,070 & 34,915 & 35,007 & 35,068 & 35,100 & 34,963 & 34,660 & 34,610 & 34,674 \\ \hline
+				\multicolumn{10}{c}{\bfseries Opornik 3} \\ \hline
+				$R_2$ [$\Omega$] & 62,0 & 64,0 & 66,0 & 68,0 & 70,0 & 72,0 & 74,0 & 76,0 & 78,0 \\
+				$a$ [mm] & 527 & 519 & 511 & 503 & 500 & 494 & 487 & 481 & 474 \\
+				$R_{x3}$ [$\Omega$] & 69,07 & 69,05 & 68,96 & 68,82 & 70,00 & 70,29 & 70,25 & 70,43 & 70,28 \\ \hline
+				\multicolumn{10}{c}{\bfseries Opornik 4} \\ \hline
+				$R_2$ [$\Omega$] & 35,8 & 36,8 & 37,8 & 38,8 & 39,8 & 40,8 & 41,8 & 42,8 & 43,8 \\
+				$a$ [mm] & 527 & 519 & 513 & 506 & 500 & 494 & 487 & 481 & 475 \\
+				$R_{x4}$ [$\Omega$] & 39,887 & 39,707 & 39,818 & 39,743 & 39,800 & 39,832 & 39,681 & 39,666 & 39,629 \\ \hline
+				\multicolumn{10}{c}{\bfseries Opornik 5} \\ \hline
+				$R_2$ [$\Omega$] & 72,7 & 82,7 & 92,7 & 102,7 & 112,7 & 122,7 & 132,7 & 142,7 & 152,7 \\
+				$a$ [mm] & 608 & 577 & 548 & 520 & 500 & 481 & 461 & 443 & 419 \\
+				$R_{x5}$ [$\Omega$] & 112,76 & 112,81 & 112,39 & 111,26 & 112,70 & 113,72 & 113,50 & 113,49 & 110,12 \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{adjustbox}
 	\label{tab:tab1}
 \end{table}
-Wartość średnia okresu $T$ dla wyników pomiaru okresu $T_i$ (Tab. \ref{tab:tab1}) jest równa $T = 1,145~\textrm{s}$. 
 
-Korzystając ze wzoru (\ref{eq:std_uncert}) niepewność pomiaru $u(T)$ jest równa
-\begin{equation}
-	u(T) = \sqrt{\frac{\sum_{i=1}^{10}(T_i - T)^2}{n(n-1)}},
-\end{equation}
+Dla każdego opornika policzyliśmy średnią arytmetyczną z dziewięciu wyznaczonych wartości oporów zawartych w tabeli (Tab. \ref{tab:tab1}). Następnie obliczyliśmy niepewność standardową pomiarów, korzystając z estymatora odchylenia standardowego średniej tych wyników. Wyniki przedstawiliśmy w tabeli poniżej.
 
-Dla danych z tabli otrzymujemy wynik $u(T) = 0,0034$ s.
-
-Poniżej znajdują się wyniki pomiarów (Tab. \ref{tab:tab2}) przy zmiennej długości wahadła potrzebne do wykonania regresji liniowej.
 \begin{table}[!ht]
-	\caption{Wartości pomiarów okresów wahadła dla zmiennej długości}
+	\caption{Średnie arytmetyczne oporów $R_x$ oraz ich niepewności $u(R_x)$}
 	\begin{center}
-		\begin{tabular}{r|r|r|r|r|r}
+		\begin{tabular}{l||c|c|c|c|c}
 			\hline
-			\multicolumn{1}{c|}{L.p.} & \multicolumn{1}{c|}{$l$ [mm]} & \multicolumn{1}{c|}{k} & \multicolumn{1}{c|}{$t$ [s]} & \multicolumn{1}{c|}{$T_i$ [s]} & \multicolumn{1}{c}{$T_{i}^{2} ~[\textrm{s}^2]$} \\ \hline \hline
-			1 & 439 & 20 & 26,2 & 1,310 & 1,716 \\
-			2 & 403 & 20 & 24,9 & 1,245 & 1,550 \\
-			3 & 366 & 20 & 23,68 & 1,184 & 1,401 \\
-			4 & 327 & 20 & 22,55 & 1,127 & 1,270 \\
-			5 & 285 & 20 & 21,16 & 1,058 & 1,119\\
-			6 & 241 & 20 & 19,32 & 0,9660 & 0,9331 \\
-			7 & 194 & 20 & 17,87 & 0,8935 & 0,7983 \\
-			8 & 153 & 20 & 15,19 & 0,7595 & 0,5768 \\
-			9 & 108 & 20 & 13,21 & 0,6605 & 0,4362 \\
-			10 & 63 & 20 & 10,34 & 0,5170 & 0,2672 \\ \hline
+			$L,p,$ & 1 & 2 & 3 & 4 & 5 \\ \hline
+			$R_x$ [$\Omega$] & 12,308 & 34,896 & 69,68 & 39,751 & 112,53  \\
+			$u(R_{x})$ [$\Omega$] & 0,030 & 0,065 & 0,22 & 0,029 & 0,38 \\ \hline
 		\end{tabular}
 	\end{center}
 	\label{tab:tab2}
 \end{table}
 
-\pagebreak
-\subsection{Analiza wyniku dla stałej długości wahadła}
-Wartość przyspieszenia ziemskiego $g$ dla długości wahadła $l$ oraz okresu wahadła $T$ wynosi:
-\begin{equation}
-	\begin{split}
-		&l = 0,341~\textrm{m},~~T = 1,145~\textrm{s}, \\ 
-		&g = 4\pi^2\frac{l}{T^2} \approx 10,26~\frac{\textrm{m}}{\textrm{s}^2}.
-	\end{split}
-\end{equation}
+W tabeli poniżej znajdują się analogiczne pomiary dla połączenia szeregowego (opory $R_{x1}$ i $R_{x2}$), równoległego (opory $R_{x1}$ i $R_{x2}$) i mieszanego (opór $R_{x3}$ szeregowo z równolegle połączonymi oporami $R_{x1}$ i $R_{x2}$).
 
-Korzystając ze wzoru (\ref{eq:uc}) na niepewność złożoną otrzymujemy:
-\begin{equation}
-	\begin{split}
-	u_c(g) & = \sqrt{\Bigg(\frac{4\pi^2}{T^2}u(l)\Bigg)^2 + \Bigg(-8\pi^2\frac{l}{T^3}u(T)\Bigg)^2} \\
-	 	   & \approx \sqrt{9,06 \cdot 10^{-4} + 37,82 \cdot 10^{-4}} \\ & \approx0,068~\Big[\frac{\textrm{m}}{\textrm{s}^2}\Big]
-	\end{split}
-\end{equation}
+\begin{table}[!ht]
+	\caption{Wartości pomiarów nieznanych oporów dla różnych połączeń}
+	\begin{adjustbox}{width=1\textwidth}
+		\begin{center}
+			\begin{tabular}{l||c|c|c|c|c|c|c|c|c}
+				\multicolumn{10}{c}{\bfseries Połączenie szeregowe} \\ \hline
+				$R_2$ [$\Omega$] & 39,5 & 41,5 & 43,5 & 45,5 & 47,5 & 49,5 & 51,5 & 53,5 & 55,5 \\
+				$a$ [mm] & 547 & 535 & 523 & 512 & 500 & 489 & 472 & 463 & 454 \\
+				$R_{szer}$ [$\Omega$] & 47,69 & 47,74 & 47,69 & 47,73 & 47,50 & 47,36 & 46,03 & 46,12 & 46,14 \\ \hline
+				\multicolumn{10}{c}{\bfseries Połączenie równoległe} \\ \hline
+				$R_2$ [$\Omega$] & 5,5 & 6,5 & 7,5 & 8,5 & 9,5 & 10,5 & 11,5 & 12,5 & 13,5 \\
+				$a$ [mm] & 631 & 587 & 555 & 524 & 500 & 474 & 449 & 427 & 409 \\
+				$R_{row}$ [$\Omega$] & 9,405 & 9,238 & 9,353 & 9,357 & 9,500 & 9,462 & 9,371 & 9,315 & 9,342 \\ \hline
+				\multicolumn{10}{c}{\bfseries Połączenie mieszane} \\ \hline
+				$R_2$ [$\Omega$] & 72,0 & 74,0 & 76,0 & 78,0 & 80,0 & 82,0 & 84,0 & 86,0 & 88,0 \\
+				$a$ [mm] & 526 & 520 & 513 & 506 & 500 & 494 & 487 & 481 & 476 \\
+				$R_{miesz}$ [$\Omega$] & 79,899 & 80,167 & 80,057 & 79,895 & 80,000 & 80,055 & 79,743 & 79,703 & 79,939 \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{adjustbox}
+	\label{tab:tab3}
+\end{table}
 
-Niepewność złożona $u_c(g)$ oraz niepewność rozszerzona $U(g)$ (wzór \ref{eq:uc_exp}) wynoszą:
+Następnie obliczyliśmy średnią arytmetyczną z wyników w tabeli \mbox{(Tab. \ref{tab:tab3})} oraz niepewności pomiarów tych wyników. Dodatkowo, poniżej zawarliśmy obliczone wartości oporów zastępczych w tych konfiguracjach oraz ich niepewności złożone, korzystając z wyników zawartych w tabeli (\mbox{Tab. \ref{tab:tab2}}).
+
+\begin{table}[!ht]
+	\caption{Średnie arytmetyczne oporów $R$ oraz ich niepewności $u(R)$ dla różnych połączeń}
+	\begin{center}
+		\begin{tabular}{l||c|c|c}
+			\multicolumn{4}{c}{\bfseries Mierzone} \\ \hline
+			Połączenie & Szeregowe &  Równoległe & Mieszane \\ \hline
+			$R_{mierz}$ [$\Omega$] & 47,11 & 9,371 & 79,939 \\
+			$u(R_{mierz})$ [$\Omega$] & 0,25 & 0,025 & 0,050 \\ \hline
+			\multicolumn{4}{c}{\bfseries Obliczone} \\ \hline
+			Połączenie & Szeregowe &  Równoległe & Mieszane \\ \hline
+			$R_{oblicz}$ [$\Omega$] & 47,204 & 9,098 & 78,77 \\
+			$u(R_{oblicz})$ [$\Omega$] & 0,071 & 0,016 & 0,22 \\ \hline
+		\end{tabular}
+	\end{center}
+	\label{tab:tab4}
+\end{table}
+
+W celu obliczenia wartości oporów zastępczych dla rozważanych w doświadczeniu połączeń wykorzystaliśmy następujące wzory, wynikające z praw Kirchhoffa:
 \begin{align}
-	u_c(g) = 0,068~\frac{\textrm{m}}{\textrm{s}^2},\\
-	U(g) = 0,136~\frac{\textrm{m}}{\textrm{s}^2}.
+	& R_{szer} = R_1 + R_2, \label{eq:r1} \\
+	& R_{row} = \frac{R_1 R_2}{R_1 + R_2}, \label{eq:r2} \\
+	& R_{miesz} = \frac{R_1 R_2}{R_1 + R_2} + R_3. \label{eq:r3}
 \end{align}
 
-Wartość tabelaryczna przyspieszenia ziemskiego w Krakowie wynosi $g_0 = 9,811~\frac{\textrm{m}}{\textrm{s}^2}$.
 
+Dla połączenia szeregowego wykorzystaliśmy wzór (\ref{eq:r1}), do połączenia równoległego wzór (\ref{eq:r2}), a do połączenia mieszanego wzór (\ref{eq:r3}) (będący konsekwencją użycia dwóch poprzednich wzorów).
+
+
+Niepewności dla obliczonych wartości oporów zastępczych wyliczyliśmy ze wzorów wynikających z prawa przenoszenia niepewności oraz powyższych równań:
 \begin{equation}
-	|g - g_0| = 0,37 > U(g) = 0,136~\Big[\frac{\textrm{m}}{\textrm{s}^2}\Big]
-	\label{eq:gconst}
+\small
+\begin{split}
+u(R_{szer}) &= \sqrt{u(R_1)^2 + u(R_2)^2}, \\
+u(R_{row}) &= \sqrt{\Bigg(\frac{R_2^2}{(R_1 + R_2)^2} u(R_1)\Bigg)^2 + \Bigg(\frac{R_1^2}{(R_1 + R_2)^2} u(R_2)\Bigg)^2}, \\
+u(R_{miesz}) &= \sqrt{\Bigg(\frac{R_2^2}{(R_1 + R_2)^2} u(R_1)\Bigg)^2 + \Bigg(\frac{R_1^2}{(R_1 + R_2)^2} u(R_2)\Bigg)^2 + u(R_3)^2}.
+\end{split}
 \end{equation}
 
-Wynik wskazuje na to, że mógł zostać popełniony błąd systematyczny podczas pomiarów okresów wahadła (żadne dane nie odbiegają od siebie w znaczący sposób). Prawdopodobnie wynika on z braku synchronizacji osób przeprowadzających doświadczenie.
+\subsection{Analiza wyników}
 
-\pagebreak
-\subsection{Analiza wyniku dla zmiennej długości wahadła}
+Analizując dane zawarte w tabeli (Tab. \ref{tab:tab4}) jesteśmy w stanie sprawdzić zgodność między wartościami zmierzonymi, a obliczonymi dla różnych konfiguracji połączeń oporników.
 
-
-Wykorzystując metodę najmniejszych kwadratów przypasowaliśmy następującą prostą:
+Dla połączenia szeregowego: 
 \begin{equation}
 	\begin{split}
-	&y = ax,~~ a = 3,888~\Big[\frac{\textrm{s}^2}{\textrm{m}}\Big],\\ 
-	&u(a) = 0,023~\Big[\frac{\textrm{s}^2}{\textrm{m}}\Big].
+	& R_{mierz} = 47,11~\Omega,~~~~R_{oblicz} = 47,204~\Omega, \\
+	& \Delta R = \Big| R_{mierz} - R_{oblicz} \Big| = 0,094~\Omega, \\
+	& U(\Delta R) = 2 \sqrt{u(R_{mierz})^2 + u(R_{oblicz})^2} = 0,52~\Omega. \\
 	\end{split}
 \end{equation}
 
-\pagebreak
-Korzystając ze wzoru:
-\begin{equation}
-	g = \frac{4\pi^2}{a}
-\end{equation}
-wyliczamy wartość przyspieszenia ziemskiego $g = 10,15~\frac{\textrm{m}}{\textrm{s}^2}$.
+Wartości mierzona oraz obliczona dla połączenia szeregowego są zgodne, gdyż $\Delta R = 0,094~\Omega < U(\Delta R) = 0,52~\Omega$.
 
-
-Korzystając z równania (\ref{eq:uc_single}) mamy:
+Dla połączenia równoległego: 
 \begin{equation}
-	\begin{split}
-	u_c(g) = \Big|-\frac{4\pi^2}{a^2}u(a)\Big| & \approx 2,61 \cdot 0,023\\
-		   & \approx 0,060~\Big[\frac{\textrm{m}}{\textrm{s}^2}\Big]
-	\end{split}
+\begin{split}
+& R_{mierz} = 9,371~\Omega,~~~~R_{oblicz} = 9,098~\Omega, \\
+& \Delta R = \Big| R_{mierz} - R_{oblicz} \Big| = 0,27~\Omega, \\
+& U(\Delta R) = 2 \sqrt{u(R_{mierz})^2 + u(R_{oblicz})^2} = 0,060~\Omega. \\
+\end{split}
 \end{equation}
 
-Niepewność złożona $u_c(g)$ oraz niepewność rozszerzona $U(g)$ pomiaru wynoszą:
-\begin{align}
-	u_c(g) = 0,060~\frac{\textrm{m}}{\textrm{s}^2}, \\
-	U(g) = 0,120~\frac{\textrm{m}}{\textrm{s}^2}.
-\end{align}
+Wartości mierzona oraz obliczona dla połączenia równoległego okazują się być niezgodne, gdyż $\Delta R = 0,27~\Omega > U(\Delta R) = 0,060~\Omega$.
 
-Porównując z wartością tabelaryczną jak poprzednio mamy:
+Dla połączenia mieszanego: 
 \begin{equation}
-	|g - g_0| = 0,26 > U(g) = 0,120~\Big[\frac{\textrm{m}}{\textrm{s}^2}\Big].
-	\label{eq:gvar}
+\begin{split}
+& R_{mierz} = 79,939~\Omega,~~~~R_{oblicz} = 78,77~\Omega, \\
+& \Delta R = \Big| R_{mierz} - R_{oblicz} \Big| = 1,169~\Omega, \\
+& U(\Delta R) = 2 \sqrt{u(R_{mierz})^2 + u(R_{oblicz})^2} = 0,45~\Omega. \\
+\end{split}
 \end{equation}
-Ponownie otrzymana wartość przyspieszenia ziemskiego $g$ nie jest zgodna z wartością tabelaryczną.
+
+Wartości mierzona oraz obliczona dla połączenia mieszanego nie są zgodne, gdyż $\Delta R = 1,169~\Omega > U(\Delta R) = 0,45~\Omega$.
+
 \section{Wnioski}
-Mimo zmniejszenia czynnika ludzkiego (10 pomiarów 20 okresów) oraz wyliczenia średniej ze zmierzonych wartości w celu zminimalizowania niepewności, wyniki otrzymane przy pomocy obu metod nie są zgodne z wartością tabelaryczną dla Krakowa.
 
-Dla naszych danych, metoda druga (wykorzystująca regresję liniową) cechuje się większą dokładnością (\ref{eq:gvar}) aniżeli metoda pierwsza (\ref{eq:gconst}).
+Z analizy wartości zmierzonych i obliczonych oporów zastępczych jesteśmy w stanie potwierdzić prawdziwość wzoru na opór zastępczy dla połączenia szeregowego, ponieważ wyniki są ze sobą zgodne w granicach błędu.
 
-Zmierzone wartości okresów musiały być obarczone błędem systematycznym. Błąd ten mógł być spowodowany brakiem synchronizacji eksperymentatorów lub zbyt dużym kątem odchylenia wahadła (większym niż $3^\circ$), bowiem wtedy aproksymacja, którą wykorzystujemy ma większy błąd (zwiększenie kąta z $3^\circ$ do $15^\circ$ powoduje ok. dwudziestokrotnie większy błąd).
+Niestety dla połączeń równoległego oraz mieszanego wyniki nie były ze sobą zgodne. Mogło to wynikać z faktu, iż założyliśmy, że opornica dekadowa ma pomijalnie mały błąd. Wpływ na ten wynik mógł mieć również stan okablowania, ponieważ nie wszystkie przewody dało się stabilnie przyłączyć do elementów układu elektrycznego, co wiązało się z fałszowaniem wyników wskazywanych przez amperomierz.
 
-%metoda druga (wykorzystująca regresję liniową) cechuje się większą dokładnością (równanie \ref{eq:gvar}) aniżeli metoda pierwsza (równanie \ref{eq:gconst}), której niepewność otrzymanego wyniku jest ponad trzykrotnie większa od niepewności metody drugiej.
 
-%Różnice powstałe między tymi dwoma metodami są spowodowane błędem systematycznym nie wykrytym podczas pomiarów okresu wahadła lub nieprawidłowym przeprowadzeniem doświadczenia. Drastyczny wpływ na wynik mógł mieć zbyt duży kąt odchylenia wahadła (większy niż $3^\circ$), bowiem wtedy aproksymacja, którą wykorzystujemy ma większy błąd (zwiększenie z $3^\circ$ do $15^\circ$ powoduje ok. dwudziestokrotnie większy błąd).
 \end{document}

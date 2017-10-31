@@ -19,12 +19,12 @@ parallel_uncert = sqrt((R_partial_diff(rx1, rx2)*rx1_uncert)**2 + (R_partial_dif
 mixed = (rx1*rx2)/(rx1 + rx2) + rx3
 mixed_uncert = sqrt((R_partial_diff(rx1, rx2)*rx1_uncert)**2 + (R_partial_diff(rx2, rx1)*rx2_uncert)**2 + rx3_uncert**2)
 
-r_series = 47.11;
-r_series_uncert = 0.25;
-r_parallel = 9.371;
-r_parallel_uncert = 0.025;
-r_mixed = 79.939;
-r_mixed_uncert = 0.05;
+r_series = 47.11
+r_series_uncert = 0.25
+r_parallel = 9.371
+r_parallel_uncert = 0.025
+r_mixed = 79.939
+r_mixed_uncert = 0.050
 
 printf('\n')
 dseries = abs(r_series - series) 

@@ -14,8 +14,8 @@ plex1_thicc = 3.8;
 plex2_thicc = 4.93;
 glass_thicc = 2.18;
 
-plex1_refr_thicc = abs(plex1(1:end,1) - plex1(1:end, 2));
-plex2_refr_thicc = abs(plex2(1:end,1) - plex2(1:end, 2))
+plex1_refr_thicc = abs(plex1(2:end,1) - plex1(2:end, 2));
+plex2_refr_thicc = abs(plex2(2:end,1) - plex2(2:end, 2))
 # Pomijamy błąd gruby
 glass_refr_thicc = abs(glass(2:end,1) - glass(2:end, 2));
 
@@ -36,3 +36,4 @@ plex2_n_uncert = n_uncert(measure_uncer, plex2_uncert, plex2_thicc, mean(plex2_r
 glass_n_uncert = n_uncert(measure_uncer, glass_uncert, glass_thicc, mean(glass_refr_thicc), glass_n)
 
 2 * [plex1_n_uncert plex2_n_uncert glass_n_uncert]
+2*sqrt(plex1_n_uncert**2 + plex2_n_uncert**2)

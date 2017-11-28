@@ -37,17 +37,17 @@
 \maketitle
 % WPROWADZENIE
 \section{Wprowadzenie}
-Celem tego doświadczenia jest wyznaczenie wartości współczynnika załamania światła dla płytek wykonanych ze szkła i pleksiglasu.
+Celem tego doświadczenia jest wyznaczenie wartości współczynnika załamania światła dla płytek wykonanych ze szkła i plexiglasu.
 
 \subsection{Prawo załamania światła}
 
-Prawo załamania światła mówi o tym, że jeżeli światło przechodzi z ośrodka $A$ do ośrodka $B$ o innych właściwościach optycznych, to stosunek sinusa kąta padania światła $\theta_A$ do sinusa kąta załamania światła $\theta_B$ jest stały. Stała ta nazywana jest współczynnikiem załamania światła i oznaczana jest przez $n$.
+Prawo załamania światła mówi o tym, że jeżeli światło przechodzi z ośrodka $A$ do ośrodka $B$ o innych właściwościach optycznych, to stosunek sinusa kąta padania światła $\theta_A$ do sinusa kąta załamania światła $\theta_B$ jest stały. Stała ta nazywana jest współczynnikiem załamania światła i oznaczana przez $n$:
 \begin{equation}
 	n = \frac{\sin \theta_A}{\sin \theta_B}.
 	\label{eq:n1}
 \end{equation}
 
-Współczynnik załamania światła jest inny dla różnych długości fali, co jest widoczne między innymi podczas zjawiska dyspersji w pryzmacie.
+Współczynnik załamania światła jest inny dla różnych długości fali, co widoczne jest między innymi podczas zjawiska dyspersji w pryzmacie.
 
 \subsection{Wyprowadzenie zależności}
 
@@ -96,7 +96,7 @@ W celu wykonania doświadczenia wykorzystaliśmy:
 
 Doświadczenie rozpoczęliśmy od zmierzenia grubości każdej z płytek za pomocą śruby mikrometrycznej o dokładności $0,01$~mm.
 
-Następnie umieściliśmy każdą płytkę pod mikroskopem i wykonaliśmy po sześć pomiarów dla płytek z plexiglasu, a siedem pomiarów dla płytki szklanej. Na każdej z płytek namalowany został krzyżyk w taki sposób, że jedna linia znajdowała się na górnej powierzchni, a druga na spodzie płytki. Dla każdej linii dostosowywaliśmy ostrość, a następnie odczytywaliśmy pomiary z zegara mikrometrycznego o dokładności $0.01$~mm.
+Następnie umieściliśmy każdą płytkę pod mikroskopem i wykonaliśmy po sześć pomiarów dla płytek z plexiglasu, a siedem pomiarów dla płytki szklanej. Na każdej z płytek namalowany został krzyżyk w taki sposób, że jedna linia znajdowała się na górnej powierzchni, a druga na spodzie płytki. Dla każdej linii dostosowywaliśmy ostrość, a następnie odczytywaliśmy pomiary z zegara mikrometrycznego o dokładności $0,01$~mm.
 
 \pagebreak
 % OPRACOWANIE DANYCH POMIAROWYCH
@@ -115,17 +115,19 @@ W poniżej tabeli znajdują się dane pomiarowe dla płytek z plexiglasu:
 		$4,30$ & $1,80$ & $2,50$ & $3,94$ & $0,67$ & $3,27$\\
 		$4,27$ & $1,81$ & $2,46$ & $3,93$ & $0,68$ & $3,25$\\
 		$4,30$ & $1,80$ & $2,50$ & $3,94$ & $0,66$ & $3,28$\\
-		$4,26$ & $1,81$ & $2,45$ & $3,92$ & $0,65$ & $3,27$\\
-		$4,28$ & $1,80$ & $2,48$ & $3,91$ & $0,67$ & $3,24$\\ \hline
+		$\textbf{4,26}$ & $\textbf{1,81}$ & $\textbf{2,45}$ & $3,92$ & $0,65$ & $3,27$\\
+		$4,28$ & $1,80$ & $2,48$ & $\textbf{3,91}$ & $\textbf{0,67}$ & $\textbf{3,24}$\\ \hline
 	\end{tabular}
 	\label{tab:tab1}
 \end{table}
 
+Pogrubione dane zawarte w tabeli (Tab. \ref{tab:tab1}) zostały odrzucone ze względu na podejrzenie popełnienia błędu grubego podczas pomiaru.
+
 Wyliczone średnie grubości pozorne oraz odpowiadające im niepewności pomiaru dla powyższych danych wynoszą kolejno:
 \begin{equation}
 	\begin{split}
-		& h_1 = (2,4833 \pm 0,0098)~\textrm{mm}, \\
-		& h_2 = (3,2617 \pm 0,0060)~\textrm{mm}.
+		& h_1 = (2,4900 \pm 0,0089)~\textrm{mm}, \\
+		& h_2 = (3,2660 \pm 0,0050)~\textrm{mm}.
 	\end{split}
 \end{equation}
 
@@ -139,20 +141,25 @@ będącego konsekwencją wzoru na niepewność względną pomiaru.
 Dla powyższych płytek mamy:
 \begin{equation}
 	\begin{split}
-		n_1 = 1,5302 \pm 0,0073, \\
-		n_2 = 1,5115 \pm 0,0041.
+		n_1 = 1,5261 \pm 0,0067, \\
+		n_2 = 1,5095 \pm 0,0038.
 	\end{split}
 \end{equation}
 
 Wartość tabelaryczna współczynnika załamania światła dla plexiglasu wynosi $n_0 = 1,492$.
 \begin{equation}
 	\begin{split}
-		&|n_0 - n_1| = 0,038 ~> U(n_1) = 0,014, \\
-		&|n_0 - n_2| = 0,0194 > U(n_2) = 0,0082.
+		&|n_0 - n_1| = 0,034 ~> U(n_1) = 0,013, \\
+		&|n_0 - n_2| = 0,0174 > U(n_2) = 0,0077.
 	\end{split}
 \end{equation}
-
 Stwierdzamy, że wyniki dla obu płytek nie są zgodne z wartością tabelaryczną.
+
+Następnie sprawdzimy zgodność obu pomiarów ze sobą, dzięki czemu będziemy mogli stwierdzić, czy współczynnik załamania światła $n$ jest niezależny od grubości płytki.
+\begin{equation}
+	|n_1 - n_2| = 0,016 > 2 \cdot \sqrt{u(n_1)^2 + u(n_2)^2} = 0,015.
+\end{equation}
+Jak widać powyżej, wyniki nie są ze sobą zgodne w granicach błędu.
 
 \subsection{Analiza pomiarów dla szkła}
 
@@ -198,8 +205,10 @@ Stwierdzamy, że wynik dla szklanej płytki jest zgodny z wartością tabelarycz
 
 \section{Wnioski}
 
-Wartości współczynnika załamania dla plexiglasu nie były zgodne z wartością tabelaryczną odpowiadającą temu materiałowi. Może być to spowodowane popełnieniem błędu systematycznego przez eksperymentatorów, na przykład podczas dobierania ostrości mikroskopu przy pomiarze grubości pozornej. Niestety wynik ten nie pozwala nam stwierdzić niezależności współczynnika załamania światła od grubości ośrodka.
+Wartości współczynnika załamania dla plexiglasu nie były zgodne z wartością tabelaryczną odpowiadającą temu materiałowi. Prawdopodobnie było to spowodowane popełnieniem błędu systematycznego przez eksperymentatorów, na przykład podczas dobierania ostrości mikroskopu przy pomiarze grubości pozornej. Dodatkowo zwiększenie ilości pomiarów mogłoby znacząco poprawić wynik tego doświadczenia.
 
-Z kolei wartość współczynnika dla szkła okazała się zgodna z wartością tabelaryczną, z czego wynika, że dane nie były obarczone błędami grubym bądź systematycznym.
+Porównanie ze sobą wyników dla obu płytek nie pozwala nam stwierdzić niezależności współczynnika załamania światła od grubości ośrodka, ponieważ wyniki nie były ze sobą zgodne w granicy błędu.
+
+Z kolei wartość współczynnika dla szkła okazała się zgodna z wartością tabelaryczną, z czego wynika, że dane dla tej płytki nie były obarczone błędami grubym bądź systematycznym.
 
 \end{document}

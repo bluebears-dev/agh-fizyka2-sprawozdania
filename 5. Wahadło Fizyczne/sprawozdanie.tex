@@ -1,0 +1,255 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{mhchem}
+
+\numberwithin{equation}{section}
+
+
+\renewcommand{\baselinestretch}{1,5}
+\captionsetup[figure]{labelformat={default},name={\bfseries Rys,}}
+\captionsetup[table]{labelformat={default},name={\bfseries Tab,}}
+
+\newcommand*{\captionsource}[2]{%
+	\caption[{#1}]{%
+		#1%
+		\\\hspace{\linewidth}%
+		\textbf{Żródło:} #2%
+	}%
+}
+
+
+\title{5, Wahadło fizyczne}
+\date{22 listopada 2017}	
+\author{
+	Zespół 3: Górski Paweł, Sozańska Ada\\
+	EAIiIB Informatyka, Rok II
+}
+
+\begin{document}
+\maketitle
+% WPROWADZENIE
+\section{Wprowadzenie}
+Celem tego doświadczenia jest wyznaczenie momentu bezwładności dla dwóch obiektów: pręta i pierścienia, za pomocą dwóch metod: wykorzystując definicję momentu bezwładności oraz z oscylacji wahadła fizycznego.
+
+\subsection{Moment bezwładności}
+
+Moment bezwładności określa sposób w jaki rozłożona jest masa względem osi obrotu danego ciała. Im większy jest moment obrotu, tym ciężej zmienić ruch obrotowy ciała (odpowiada on masie w dynamice ruchu postępowego). W przypadku ciała o ciągłym rozkładzie masy, wzór na moment obrotowy wyrażony jest za pomocą całki po całej objętości ciała $V$:
+\begin{equation}
+	I = \int\limits_{V} r^2\textrm{d}m,
+\end{equation}
+gdzie $r$ jest odległością infinitezymalnego elementu o masie $\textrm{d}m$ od osi obrotu.\\
+
+Dla rozważanych ciał (pręta i pierścienia) moment bezwładności wyrażają wzory:
+\begin{align}
+	&I_{pret} = \frac{1}{12}ml^2, \label{eq:pret}\\
+	&I_{pier} = \frac{1}{2}m(R^2 + r^2). \label{eq:piers}
+\end{align}
+Wzór na moment bezwładności pręta o masie $m$ i długości $l$ jest prawdziwy przy założeniu, że jego oś obrotu jest do niego prostopadła i przechodzi przez jego środek, a jego średnica jest pomijalnie mała.
+Natomiast dla pierścienia o masie $m$ i promieniach: zewnętrznym $R$ i wewnętrznym $r$ powyższy wzór jest prawdziwy, jeżeli oś obrotu jest do niego równoległa i przechodzi przez jego środek. 
+
+\subsection{Druga zasada dynamiki dla ruchu obrotowego}
+
+Jeżeli ciało obraca się wokół stałej osi, to można zastosować drugą zasadę dynamiki ruchu obrotowego. Mówi ona, że jeżeli na ciało o momencie bezwładności $I$ względem osi obrotu działają siły wywierające niezerowy, wypadkowy moment siły $M$, to w wyniku ciało będzie się obracać z przyspieszeniem kątowym $\varepsilon$ równym:
+\begin{equation}
+	\varepsilon = \frac{M}{I}.
+	\label{eq:zasada}
+\end{equation}
+
+\subsection{Twierdzenie Steinera}
+
+Twierdzenie Steinera podaje zależność między równoległymi do siebie osiami obrotu danego ciała. Mówi ono, że moment bezwładności $I_s$ względem pewnej osi przesuniętej o $d$ jest równy:
+\begin{equation}
+	I_s = I_0 + md^2,
+	\label{eq:steiner}
+\end{equation}
+gdzie $I_0$ jest momentem bezwładności ciała przed przesunięciem tej osi, a $m$ masą ciała.
+
+\subsection{Wahadło fizyczne}
+
+Wahadłem fizycznym nazywamy ciało (bryłę sztywną), które porusza się wedle ustalonej osi obrotu, nie przechodzącej przez środek masy. Jest to uogólnienie wahadła prostego. Ciało o masie $m$ i momencie bezwładności $I$ odchylone od pionu o kąt $\alpha$ będzie wykonywać drgania wokół ustalonej osi obrotu. Moment siły dla tego wychylenia będzie równy:
+\begin{equation}
+	M = mga \sin\alpha,
+\end{equation}
+gdzie $g$ oznacza wartość przyspieszenia ziemskiego, a $a$ odległość środka masy od osi obrotu. Wynika to z faktu, że ruch wymuszony jest przez siłę grawitacji działającą na to ciało. Wiemy również, że przyspieszenie kątowe $\varepsilon$ jest tempem zmiany wychylenia kąta $\alpha$ od czasu $t$. Z równania (\ref{eq:zasada}) i powyższych zależności mamy:
+\begin{equation}
+	I \frac{\partial^2 \alpha}{\partial t^2} = -mga \sin\alpha,
+\end{equation}
+gdzie minus wynika z faktu, że moment siły ma zwrot przeciwny do kierunku wychylenia.
+Ograniczając ruch do małych kątów wychylenia możemy zastosować aproksymację upraszczającą powyższy wzór:
+\begin{equation}
+	\frac{\partial^2 \alpha}{\partial t^2} + \omega^2 \alpha = 0,
+	\label{eq:alpha_diff}
+\end{equation}
+gdzie
+\begin{equation}
+	\omega^2 = \frac{mga}{I}.
+	\label{eq:czest}
+\end{equation}
+
+Równanie (\ref{eq:alpha_diff}) jest równaniem oscylatora harmonicznego, którego rozwiązanie daje nam:
+\begin{equation}
+	\alpha = \alpha_0 \cos(\omega t + \phi).
+\end{equation}
+
+Widzimy, że $\omega$ jest częstością kołową ruchu wahadła, czyli $\omega = \frac{2 \pi}{T}$.
+
+Z równania (\ref{eq:czest}) mamy więc:
+\begin{equation}
+	I = \frac{mgaT^2}{4 \pi^2}.
+	\label{eq:I}
+\end{equation}
+
+% WYKONANIE ĆWICZENIA
+\section{Wykonanie ćwiczenia}
+\label{sec:2}
+
+W celu wykonania doświadczenia wykorzystaliśmy:
+\begin{itemize}
+	\item Statyw,
+	\item Pręt i pierścień,
+	\item Przymiar milimetrowy,
+	\item Suwmiarkę o dokładności $0,05$~mm,
+	\item Wagę elektroniczną o dokładności $1$~g,
+	\item Stoper.
+\end{itemize}
+
+Doświadczenie rozpoczęliśmy od pomiaru rozmiarów geometrycznych obu brył. Przy pomocy przymiaru milimetrowego zmierzyliśmy długość $l$ pręta i odległość jednego z jego końców od osi obrotu $a$, a jego średnicę $d$ za pomocą suwmiarki. Natomiast w przypadku pierścienia, średnice: wewnętrzna $d_w$ i zewnętrzna $d_z$ zostały zmierzone przymiarem milimetrowym, a głębokość wcięcia $e$ w miejscu zaczepienia na statywie za pomocą suwmiarki. Następnie obie bryły zostały zważone.
+
+W drugiej części ćwiczenia na statywie zawieszaliśmy pojedynczo każdą z brył i odmierzaliśmy czas $t$ dwudziestu wahnięć wahadła. Dla pręta pomiar został powtórzony $15$ razy, a dla pierścienia $20$ razy.
+
+\pagebreak
+% OPRACOWANIE DANYCH POMIAROWYCH
+\section{Opracowanie danych pomiarowych}
+\subsection{Obliczanie momentu bezwładności z definicji}
+\subsubsection{Pręt}
+\label{sec:pret}
+Dla pręta o długości $l = (749 \pm 1)$~mm, średnicy $d = (11,80 \pm 0,05)$~mm i masie
+$m = (663 \pm 1)$~g możemy skorzystać bezpośrednio ze wzoru (\ref{eq:pret}), aby obliczyć jego moment bezwładności $I_g$. Niepewność pomiaru momentu bezwładności obliczymy z równania, wynikającego ze wzoru na niepewność względną:
+\begin{equation}
+	u(I_g) = I_g \cdot \sqrt{\Bigg(\frac{u(m)}{m}\Bigg)^2 + \Bigg(2\frac{u(l)}{l}\Bigg)^2}.
+\end{equation}
+Otrzymujemy moment bezwładności równy:
+\begin{equation}
+	I_g = (30,995 + 0,095)~\textrm{gm}^2.
+\end{equation}
+
+\subsubsection{Pierścień}
+\label{sec:piers}
+Dla pierścienia o średnicy wewnętrznej $d_w = (279 \pm 1)$~mm, średnicy zewnętrznej $d_z = (250 \pm 1)$~mm i masie $m = (1343 \pm 1)$~g możemy wyznaczyć moment bezwładności $I_g$ korzystając z zależności (\ref{eq:piers}). Niepewność tego pomiaru będzie wyrażona następującym wzorem:
+\begin{equation}
+	u(I_g) = \sqrt{\Bigg(\frac{u(m)}{8} (d_w^2 + d_z^2)\Bigg)^2 + \Bigg(\frac{u(d_w)}{4} m d_w\Bigg)^2 + \Bigg(\frac{u(d_z)}{4} m d_z\Bigg)^2}.
+\end{equation}
+Otrzymujemy moment bezwładności równy:
+\begin{equation}
+I_g = (23,56\pm 0,12)~\textrm{gm}^2.
+\end{equation}
+
+\subsection{Obliczanie momentu bezwładności z oscylacji}
+\subsubsection{Pręt}
+
+Dla pręta z podsekcji \ref{sec:pret}, drgającego względem osi obrotu odległej od jednego z jego końców o $a = (97 \pm 1)$~mm, podajemy wyniki pomiarów okresów drgań:
+
+\begin{table}[!ht]
+	\caption{Wartości pomiaru okresu dla pręta}
+	\centering 
+	\begin{tabular}{c|c|c||c|c|c} \hline
+		$t_k$~[s] & $k$ & $T_k$~[s] & $t_k$~[s] & $k$ & $T_k$~[s] \\ \hline \hline
+		$26,590$ & $20$ & $1,3295$ & $26,730$ & $20$ & $1,3365$ \\
+		$26,820$ & $20$ & $1,3410$ & $26,410$ & $20$ & $1,3205$ \\
+		$26,750$ & $20$ & $1,3375$ & $26,310$ & $20$ & $1,3155$ \\
+		$26,720$ & $20$ & $1,3360$ & $26,430$ & $20$ & $1,3215$ \\
+		$26,420$ & $20$ & $1,3210$ & $26,590$ & $20$ & $1,3295$ \\
+		$26,370$ & $20$ & $1,3185$ & $26,370$ & $20$ & $1,3185$ \\
+		$26,590$ & $20$ & $1,3295$ & $26,530$ & $20$ & $1,3265$ \\
+		$\textbf{27,030}$ & $\textbf{20}$ & $\textbf{1,3515}$ & & &\\ \hline
+	\end{tabular}
+	\label{tab:tab1}
+\end{table}
+		
+Pogrubione wyniki w tabeli (Tab. \ref{tab:tab1}) zostały pominięte z uwagi na podejrzenie popełnienia błędu grubego. Średnia z uzyskanych wartości okresu $T_k$ wraz z niepewnością ich pomiaru (estymatorem odchylenia standardowego średniej) wynosi:
+\begin{equation}
+	T = (1,3272 \pm 0,0022)~\textrm{s}.
+\end{equation}
+
+Korzystając ze wzorów (\ref{eq:steiner}) oraz (\ref{eq:I}) otrzymujemy:
+\begin{equation}
+	I_T = m \Bigg(\frac{g a_0 T^2}{4 \pi^2} - a_0^2\Bigg),
+	\label{eq:IT}
+\end{equation}
+gdzie $a_0 = \frac{l}{2} - a = (27 \pm 1)$~mm.
+
+Niepewność pomiaru momentu bezwładności $u(I_T)$ wyrażona jest następującym wzorem:
+\begin{equation}
+	\scriptsize
+	u(I_T) = \sqrt{\Bigg(u(m) \Big(\frac{g a_0 T^2}{4 \pi^2} - a_0^2\Big)\Bigg)^2 + \Bigg(u(a_0) m \Big(\frac{g T^2}{4 \pi^2} - 2a_0\Big)\Bigg)^2 + \Bigg(u(T) m \Big(\frac{g a_0 T}{2 \pi^2}\Big)\Bigg)^2}.
+	\label{eq:uIT}
+\end{equation}
+
+Otrzymujemy moment bezwładności równy:
+\begin{equation}
+I_T = (29,48 \pm 0,28)~\textrm{gm}^2.
+\end{equation}
+
+\subsubsection{Pierścień}
+
+Dla pierścienia z podsekcji \ref{sec:piers}, drgającego względem osi obrotu odległej od jego środka o $a_0 = \frac{d_w}{2} + e = (13 \pm 1)$~mm, gdzie $e = (7,45 \pm 0,05)$~mm i jest głębokością wnęki w pierścieniu, podajemy wyniki pomiarów okresów drgań:
+
+\begin{table}[!ht]
+	\caption{Wartości pomiaru okresu dla pierścienia}
+	\centering 
+	\begin{tabular}{c|c|c||c|c|c} \hline
+		$t_k$~[s] & $k$ & $T_k$~[s] & $t_k$~[s] & $k$ & $T_k$~[s] \\ \hline \hline
+		$20,320$ & $20$ & $1,0160$ & $20,470$ & $20$ & $1,0235$ \\
+		$20,780$ & $20$ & $1,0390$ & $20,650$ & $20$ & $1,0325$ \\
+		$20,420$ & $20$ & $1,0210$ & $20,370$ & $20$ & $1,0185$ \\
+		$20,590$ & $20$ & $1,0295$ & $20,410$ & $20$ & $1,0205$ \\
+		$20,630$ & $20$ & $1,0315$ & $20,500$ & $20$ & $1,0250$ \\
+		$20,580$ & $20$ & $1,0290$ & $20,440$ & $20$ & $1,0220$ \\
+		$20,720$ & $20$ & $1,0360$ & $20,660$ & $20$ & $1,0330$ \\
+		$20,430$ & $20$ & $1,0215$ & $20,710$ & $20$ & $1,0355$ \\ 
+		$20,790$ & $20$ & $1,0395$ & $20,750$ & $20$ & $1,0375$\\ 
+		$20,530$ & $20$ & $1,0265$ & $\textbf{20,910}$ & $\textbf{20}$ & $\textbf{1,0455}$\\ \hline
+	\end{tabular}
+	\label{tab:tab2}
+\end{table}
+
+Pogrubione wyniki w tabeli (Tab. \ref{tab:tab2}) zostały pominięte z uwagi na podejrzenie popełnienia błędu grubego. Średnia z uzyskanych wartości okresu $T_k$ wraz z niepewnością ich pomiaru (estymatorem odchylenia standardowego średniej) wynosi:
+\begin{equation}
+T = (1,0283 \pm 0,0016)~\textrm{s}.
+\end{equation}
+
+Korzystając ze wzorów (\ref{eq:IT}) i (\ref{eq:uIT}) otrzymujemy moment bezwładności równy:
+\begin{equation}
+	I_T = (23,18 \pm 0,15)~\textrm{gm}^2.
+\end{equation}
+
+\subsection{Analiza wyników}
+
+Różnice w otrzymanych wynikach momentu bezwładności dla pręta wynoszą $\Delta I = 1,51$~gm$^2$.  Zachodzi więc poniższa nierówność:
+\begin{equation}
+	\Delta I = 1,51 > U(I) = 2\sqrt{u(I_g)^2 + u(I_T)^2} = 0,59 ~[\textrm{gm}^2],
+\end{equation}
+co pozwala nam stwierdzić, że wyniki nie są zgodne.
+
+Różnice w otrzymanych wynikach momentu bezwładności dla pierścienia wynoszą $\Delta I = 0,38$~gm$^2$.  Zachodzi więc poniższa nierówność:
+\begin{equation}
+\Delta I = 0,38 < U(I) = 2\sqrt{u(I_g)^2 + u(I_T)^2} = 0,39 ~[\textrm{gm}^2],
+\end{equation}
+co pozwala nam stwierdzić, że wyniki są zgodne.
+
+\pagebreak
+\section{Wnioski}
+
+Wartości momentu bezwładności otrzymane przy pomocy dwóch niezależnych metod nie były ze sobą zgodne dla badanego pręta. Może to wskazywać, że został popełniony niewykryty błąd gruby lub błąd systematyczny. Ponadto zachodzi możliwość, że oszacowanie niepewności było zbyt optymistyczne. Na poprawę wyniku mogłoby wpłynąć zwiększenie ilości wykonanych pomiarów.
+
+Natomiast dla badanego pierścienia wyniki były ze sobą zgodne w granicy błędu. Rezultat wskazywałby na poprawność metody wykorzystującej pomiar okresu oscylacji wahadła, jednakże nie jesteśmy w stanie potwierdzić poprawności tej metody ze względu na wyniki otrzymane dla pręta.
+
+\end{document}
